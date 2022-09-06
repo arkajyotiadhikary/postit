@@ -44,6 +44,7 @@ $routes->add('/signin/authuser','User::authuser');
 $routes->get('/posts', 'Post::index');
 $routes->get('/post', 'Post::post');
 $routes->post('/post/addpost', 'Post::addpost');
+$routes->get('/deletepost/(:num)', 'Post::deletepost/$1');
 
 
 

@@ -8,7 +8,11 @@ use App\Models\Posts;
 class Post extends Controller {
 
     public function index() {
-        return view('posts');
+        $session = session();
+        $postModel = new Posts();
+        $data['posts'] = $postModel->findAll();
+        $data['myposts'] = $postModel->where('author', $session->get("username"))->findAll();
+        return view('posts', $data);
     }
 
     public function post() {
@@ -34,6 +38,12 @@ class Post extends Controller {
         } else {
             return view('post', ['validation' => $this->validator]);
         }
+    }
+
+    public function deletepost($id = null) {
+        $postModel = new Posts();
+        $data['post'] = $postModel->where('id', $id)->delete($id);
+        return redirect()->to('/posts');
     }
 
 }

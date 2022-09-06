@@ -11,3 +11,12 @@ body{
 .article-textarea{
     resize: none;
 }
+.mypost-list{
+    display: none;
+    margin-top: 2rem;
+    list-style: none;
+}
+.post-btn-group #selected-btn{
+    background-color: #0275d8;
+    color: white;
+}

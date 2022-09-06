@@ -1,0 +1,111 @@
+CRITICAL - 2022-09-06 02:04:02 --> Too few arguments to function CodeIgniter\View\View::section(), 0 passed in C:\xampp\htdocs\PostIt\app\Views\signin.php on line 21 and exactly 1 expected
+in SYSTEMPATH\View\View.php on line 373.
+ 1 APPPATH\Views\signin.php(21): CodeIgniter\View\View->section()
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\signin.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('signin', [], true)
+ 5 APPPATH\Controllers\User.php(10): view('signin')
+ 6 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\User->signin()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-09-06 02:56:31 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', '', '', 'post_it', 3306, '', 0)
+#1 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Rules.php(142): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Validation.php(315): CodeIgniter\Validation\Rules->is_unique('arkajyotiadhika...', 'email', Array, NULL)
+#6 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Validation.php(175): CodeIgniter\Validation\Validation->processRules('email', 'email', 'arkajyotiadhika...', Array, Array)
+#7 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Controller.php(140): CodeIgniter\Validation\Validation->run()
+#8 C:\xampp\htdocs\PostIt\app\Controllers\User.php(26): CodeIgniter\Controller->validate(Array)
+#9 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\User->adduser()
+#10 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#11 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\PostIt\index.php(67): CodeIgniter\CodeIgniter->run()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Rules.php(142): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Validation.php(315): CodeIgniter\Validation\Rules->is_unique('arkajyotiadhika...', 'email', Array, NULL)
+#5 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Validation\Validation.php(175): CodeIgniter\Validation\Validation->processRules('email', 'email', 'arkajyotiadhika...', Array, Array)
+#6 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\Controller.php(140): CodeIgniter\Validation\Validation->run()
+#7 C:\xampp\htdocs\PostIt\app\Controllers\User.php(26): CodeIgniter\Controller->validate(Array)
+#8 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(907): App\Controllers\User->adduser()
+#9 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+#10 C:\xampp\htdocs\PostIt\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\PostIt\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-09-06 02:56:31 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\Rules.php(142): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\Validation.php(315): CodeIgniter\Validation\Rules->is_unique('arkajyotiadhikary15@gmail.com', 'email', [...], null)
+ 5 SYSTEMPATH\Validation\Validation.php(175): CodeIgniter\Validation\Validation->processRules('email', 'email', 'arkajyotiadhikary15@gmail.com', [...], [...])
+ 6 SYSTEMPATH\Controller.php(140): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\User.php(26): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\User->adduser()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-06 03:14:50 --> Class "App\Controllers\UserModel" not found
+in APPPATH\Controllers\User.php on line 41.
+ 1 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\User->authuser()
+ 2 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-06 03:15:17 --> Undefined array key "name"
+in APPPATH\Controllers\User.php on line 51.
+ 1 APPPATH\Controllers\User.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Controllers\\User.php', 51)
+ 2 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\User->authuser()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-06 03:56:19 --> include(./partials/blog.php): Failed to open stream: No such file or directory
+in APPPATH\Views\posts.php on line 11.
+ 1 APPPATH\Views\posts.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'include(./partials/blog.php): Failed to open stream: No such file or directory', 'APPPATH\\Views\\posts.php', 11)
+ 2 APPPATH\Views\posts.php(11): include()
+ 3 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\posts.php')
+ 4 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('posts', [], true)
+ 6 APPPATH\Controllers\Post.php(10): view('posts')
+ 7 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Post->index()
+ 8 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-06 03:57:21 --> Invalid file: partial/blog.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('partial/blog.php')
+ 2 SYSTEMPATH\View\View.php(429): CodeIgniter\View\View->render('partial/blog', null, true)
+ 3 APPPATH\Views\posts.php(11): CodeIgniter\View\View->include('partial/blog')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\posts.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('posts', [], true)
+ 7 APPPATH\Controllers\Post.php(10): view('posts')
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Post->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Post))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-09-06 03:57:36 --> Invalid file: partial/blog.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('partial/blog.php')
+ 2 SYSTEMPATH\View\View.php(429): CodeIgniter\View\View->render('partial/blog', null, true)
+ 3 APPPATH\Views\posts.php(11): CodeIgniter\View\View->include('partial/blog')
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\posts.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('posts', [], true)
+ 7 APPPATH\Controllers\Post.php(10): view('posts')
+ 8 SYSTEMPATH\CodeIgniter.php(907): App\Controllers\Post->index()
+ 9 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Post))
+10 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

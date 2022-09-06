@@ -1,0 +1,10 @@
+html{
+    height: 100vh;
+}
+body{
+    height: 100vh;
+}
+.post-list{
+    margin-top: 2rem;
+    list-style: none;
+}

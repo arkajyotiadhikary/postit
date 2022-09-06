@@ -40,6 +40,31 @@ class Post extends Controller {
         }
     }
 
+    public function updatepostform($id = null) {
+        $postModel = new Posts();
+        $data['post'] = $postModel->where('id', $id)->first();
+        return view('updatepost', $data);
+    }
+
+    public function updatepost($id = null) {
+        helper('form');
+        $rules = [
+            'post_title' => "required",
+            'post' => 'required'
+        ];
+        if ($this->validate($rules)) {
+            $postModel = new Posts();
+            $data = [
+                'post_title' => $this->request->getVar('post_title'),
+                'post' => $this->request->getVar('post'),
+            ];
+            $postModel->update($id, $data);
+            return redirect()->to('/posts');
+        } else {
+            return view('updatepost', ['validation' => $this->validator]);
+        }
+    }
+
     public function deletepost($id = null) {
         $postModel = new Posts();
         $data['post'] = $postModel->where('id', $id)->delete($id);

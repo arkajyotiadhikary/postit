@@ -45,6 +45,8 @@ $routes->get('/posts', 'Post::index');
 $routes->get('/post', 'Post::post');
 $routes->post('/post/addpost', 'Post::addpost');
 $routes->get('/deletepost/(:num)', 'Post::deletepost/$1');
+$routes->get('/updatepostform/(:num)', 'Post::updatepostform/$1');
+$routes->post('/updatepost/(:num)', 'Post::updatepost/$1');
 
 
 

@@ -42,6 +42,10 @@ $routes->get('/signup', 'User::signup');
 $routes->add('/signup/adduser','User::adduser');
 $routes->add('/signin/authuser','User::authuser');
 $routes->get('/posts', 'Post::index');
+$routes->get('/post', 'Post::post');
+$routes->post('/post/addpost', 'Post::addpost');
+
+
 
 /*
  * --------------------------------------------------------------------
